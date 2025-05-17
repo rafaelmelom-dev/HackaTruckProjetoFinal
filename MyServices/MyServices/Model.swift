@@ -11,6 +11,7 @@ class ModelView : ObservableObject{
     
     @Published var arrayProfissionais : [Profissional] = []
     @Published var arrayPerfis : [Perfil] = []
+//    @Published var favoritos: [Profissional] = []
     
     func fetchProfissionais(){
         

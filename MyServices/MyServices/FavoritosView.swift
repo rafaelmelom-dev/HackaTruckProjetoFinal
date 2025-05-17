@@ -1,72 +1,52 @@
 //
-//  HomeView.swift
-//  MyServices
+//  ContentView.swift
+//  Favoritos
 //
-//  Created by Turma02-2 on 27/02/25.
+//  Created by Turma02-27 on 10/03/25.
 //
 
 import SwiftUI
 
-struct HomeView: View {
+struct FavoritosView: View {
     
-    @StateObject var vm : ModelView
-
-    @State var auxPro : Profissional = Profissional(_id: "", _rev: "", nome: "Edilson", foto: "https://st2.depositphotos.com/1518767/6088/i/450/depositphotos_60889523-stock-photo-plumber-smiling-at-the-camera.jpg", profissao: "Dev", estrelas: 5, telefone: "", contratacoes: 1, descricao: "", comentarios: [Comentario(id: "", comentario: "")])
+    @StateObject var vm: ModelView
     
-    @State  var sheet = false
+    @State var auxPro: Profissional = Profissional(_id: "", _rev: "", nome: "Edilson", foto: "https://st2.depositphotos.com/1518767/6088/i/450/depositphotos_60889523-stock-photo-plumber-smiling-at-the-camera.jpg", profissao: "Dev", estrelas: 5, telefone: "", contratacoes: 1, descricao: "", comentarios: [Comentario(id: "", comentario: "")])
+    
+    @State var sheet = false
     @State var idAux: String = ""
     @State var status = false
     
     var body: some View {
-        NavigationStack{
-            ZStack{
+        NavigationStack {
+            ZStack {
                 Color.fundo.ignoresSafeArea()
-                VStack{
+                VStack {
+                    Text("Profissionais favoritados")
+                        .font(.system(size: 20))
+                        .bold()
                     
-                    VStack{
-                        Image("myservices")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200)
-                            .padding(0)
-                        Text("Melhores profissionais classificados")
-                            .padding()
-                            .foregroundStyle(Color.black)
-                            .frame(height: 40)
-                            .background(.laranja.opacity(0.8))
-                            .cornerRadius(30)
-                            .padding(.bottom)
-                    }
-                    
+                    Divider()
                     ScrollView {
-                        Color.white
-                        VStack{
-                            ForEach(vm.arrayProfissionais, id: \.self) { profissional in
-                                
-                                NavigationLink(destination: ProfissionalView(profissionalSelecionado: $auxPro, vm: vm).onAppear{auxPro = profissional}){
-                                    
+                        VStack {
+                            ForEach(vm.arrayPerfis[0].favoritos, id: \.self) { id in
+                                // Encontrando o profissional correspondente ao id
+                                if let profissional = vm.arrayProfissionais.first(where: { $0._id == id }) {
                                     HStack {
-                                        
-                                        //circle por trás a imagem
                                         AsyncImage(url: URL(string: profissional.foto)) { image in
                                             image
                                                 .resizable()
-                                            
                                                 .aspectRatio(1, contentMode: .fit)
-                                            
                                                 .clipShape(Circle())
                                                 .frame(width: 70, height: .infinity)
                                         } placeholder: {
                                             AsyncImage(url: URL(string: "https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png")) { image in
                                                 image
                                                     .resizable()
-                                                
                                                     .aspectRatio(1, contentMode: .fit)
-                                                
                                                     .clipShape(Circle())
                                                     .frame(width: 70, height: .infinity)
                                             } placeholder: {
-                                                
                                                 Color.gray
                                             }
                                         }
@@ -89,7 +69,6 @@ struct HomeView: View {
                                                 estrela(valor: profissional.estrelas)
                                                 Spacer()
                                             }
-                                            
                                         }
                                         Spacer()
                                         
@@ -99,24 +78,30 @@ struct HomeView: View {
                                                 .onTapGesture {
                                                     vm.arrayPerfis[0].favoritos.removeAll(where: { $0 == profissional._id })
                                                 }
-                                        }else{
+                                        } else {
                                             Image(systemName: "heart")
                                                 .onTapGesture {
                                                     vm.arrayPerfis[0].favoritos.append(profissional._id)
                                                 }
                                         }
+                                    }.onTapGesture {
+                                        auxPro = profissional
+                                        sheet.toggle()
                                     }
-                                }.accentColor(.black)
-                                Divider()
+                                }
                             }
                             .padding()
-                            
+                            Divider()
                         }
-                    }.padding()
+                        .sheet(isPresented: $sheet) {
+                            // Passando a variável auxPro como um Binding para ProfissionalView
+                            ProfissionalView(profissionalSelecionado: $auxPro, vm: vm)
+                        }
+                    }
+                    .padding()
                 }
             }
-        }.onAppear(){vm.fetchProfissionais()}
+        }
+        .onAppear { vm.fetchProfissionais() }
     }
 }
-
-

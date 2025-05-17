@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var vm = ModelView()
+    
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(vm: vm)
                 .tabItem {
                     Label("Início", systemImage: "house")
                 }
             
-            BuscaView()
+            BuscaView(vm: vm)
                 .tabItem {
                     Label("Busca",
                           systemImage: "magnifyingglass")
                 }
             
-            HistoricoView()
+            HistoricoView(vm: vm)
                 .tabItem {
                     Label("Histórico",
                           systemImage: "list.bullet.rectangle.portrait")
                 }
             
-            PerfilView()
+            PerfilView(vm: vm)
                 .tabItem {
                     Label("Perfil",
                           systemImage: "person.circle.fill")
@@ -35,8 +37,4 @@ struct ContentView: View {
             
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

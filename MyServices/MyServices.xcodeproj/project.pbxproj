@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0442C2432D8366850061E67A /* AvaliacaoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442C2422D8366850061E67A /* AvaliacaoView.swift */; };
+		0442C2452D8369510061E67A /* ContratoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442C2442D8369510061E67A /* ContratoView.swift */; };
+		045A86202D7F6CAC00438A3B /* FavoritosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A861F2D7F6CAC00438A3B /* FavoritosView.swift */; };
 		04605F042D70DB9E00F14A36 /* MyServicesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04605F032D70DB9E00F14A36 /* MyServicesApp.swift */; };
 		04605F062D70DB9E00F14A36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04605F052D70DB9E00F14A36 /* ContentView.swift */; };
 		04605F082D70DB9F00F14A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04605F072D70DB9F00F14A36 /* Assets.xcassets */; };
@@ -19,9 +22,15 @@
 		04605F1C2D70DDA600F14A36 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04605F1B2D70DDA600F14A36 /* HomeView.swift */; };
 		04605F1E2D70DDB800F14A36 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04605F1D2D70DDB800F14A36 /* PerfilView.swift */; };
 		04605F202D70FCC800F14A36 /* ProfissionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04605F1F2D70FCC800F14A36 /* ProfissionalView.swift */; };
+		04709B1C2D80BEDE00F846FB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04709B1B2D80BEDE00F846FB /* LoginView.swift */; };
+		04DCFFDF2D820AD000198B33 /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCFFDE2D820AD000198B33 /* CadastroView.swift */; };
+		04DCFFE12D8216DE00198B33 /* CardFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCFFE02D8216DE00198B33 /* CardFav.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0442C2422D8366850061E67A /* AvaliacaoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoView.swift; sourceTree = "<group>"; };
+		0442C2442D8369510061E67A /* ContratoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContratoView.swift; sourceTree = "<group>"; };
+		045A861F2D7F6CAC00438A3B /* FavoritosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosView.swift; sourceTree = "<group>"; };
 		04605F002D70DB9E00F14A36 /* MyServices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyServices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04605F032D70DB9E00F14A36 /* MyServicesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServicesApp.swift; sourceTree = "<group>"; };
 		04605F052D70DB9E00F14A36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +44,9 @@
 		04605F1B2D70DDA600F14A36 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		04605F1D2D70DDB800F14A36 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 		04605F1F2D70FCC800F14A36 /* ProfissionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfissionalView.swift; sourceTree = "<group>"; };
+		04709B1B2D80BEDE00F846FB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		04DCFFDE2D820AD000198B33 /* CadastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroView.swift; sourceTree = "<group>"; };
+		04DCFFE02D8216DE00198B33 /* CardFav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFav.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +85,18 @@
 				04605F1D2D70DDB800F14A36 /* PerfilView.swift */,
 				04605F052D70DB9E00F14A36 /* ContentView.swift */,
 				04605F032D70DB9E00F14A36 /* MyServicesApp.swift */,
-				04605F072D70DB9F00F14A36 /* Assets.xcassets */,
-				04605F092D70DBA000F14A36 /* Preview Content */,
 				04605F132D70DC9E00F14A36 /* Dados.swift */,
 				04605F152D70DCB800F14A36 /* Model.swift */,
 				04605F172D70DCDD00F14A36 /* ResultadosView.swift */,
 				04605F1F2D70FCC800F14A36 /* ProfissionalView.swift */,
+				045A861F2D7F6CAC00438A3B /* FavoritosView.swift */,
+				04709B1B2D80BEDE00F846FB /* LoginView.swift */,
+				04DCFFDE2D820AD000198B33 /* CadastroView.swift */,
+				04605F072D70DB9F00F14A36 /* Assets.xcassets */,
+				04605F092D70DBA000F14A36 /* Preview Content */,
+				04DCFFE02D8216DE00198B33 /* CardFav.swift */,
+				0442C2422D8366850061E67A /* AvaliacaoView.swift */,
+				0442C2442D8369510061E67A /* ContratoView.swift */,
 			);
 			path = MyServices;
 			sourceTree = "<group>";
@@ -162,10 +180,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				04605F182D70DCDD00F14A36 /* ResultadosView.swift in Sources */,
+				04DCFFDF2D820AD000198B33 /* CadastroView.swift in Sources */,
+				0442C2452D8369510061E67A /* ContratoView.swift in Sources */,
 				04605F162D70DCB800F14A36 /* Model.swift in Sources */,
 				04605F062D70DB9E00F14A36 /* ContentView.swift in Sources */,
 				04605F142D70DC9E00F14A36 /* Dados.swift in Sources */,
 				04605F042D70DB9E00F14A36 /* MyServicesApp.swift in Sources */,
+				045A86202D7F6CAC00438A3B /* FavoritosView.swift in Sources */,
+				04DCFFE12D8216DE00198B33 /* CardFav.swift in Sources */,
+				04709B1C2D80BEDE00F846FB /* LoginView.swift in Sources */,
+				0442C2432D8366850061E67A /* AvaliacaoView.swift in Sources */,
 				04605F1C2D70DDA600F14A36 /* HomeView.swift in Sources */,
 				04605F1A2D70DD9800F14A36 /* HistoricoView.swift in Sources */,
 				04605F1E2D70DDB800F14A36 /* PerfilView.swift in Sources */,
@@ -304,6 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyServices/Preview Content\"";
+				DEVELOPMENT_TEAM = NXA8DB38S2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -332,6 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyServices/Preview Content\"";
+				DEVELOPMENT_TEAM = NXA8DB38S2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

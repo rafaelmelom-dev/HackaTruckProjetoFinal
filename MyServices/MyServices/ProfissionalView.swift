@@ -9,12 +9,37 @@ import SwiftUI
 
 struct ProfissionalView: View {
     
+    @State private var sheet: Bool = false
     @Binding var profissionalSelecionado : Profissional
+    @StateObject var vm: ModelView
     
     var body: some View {
         VStack {
-            Image(systemName: "person.crop.circle.fill")
-                .font(.system(size: UIScreen.main.bounds.width * 0.3))
+//            Image(systemName: "person.crop.circle.fill")
+//                .font(.system(size: UIScreen.main.bounds.width * 0.3))
+            Spacer()
+            AsyncImage(url: URL(string: profissionalSelecionado.foto)) { image in
+                image
+                    .resizable()
+                
+                    .aspectRatio(1, contentMode: .fit)
+                
+                    .clipShape(Circle())
+                    .frame(width: UIScreen.main.bounds.width * 0.3)
+            } placeholder: {
+                AsyncImage(url: URL(string: "https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png")) { image in
+                    image
+                        .resizable()
+                    
+                        .aspectRatio(1, contentMode: .fit)
+                    
+                        .clipShape(Circle())
+                        .frame(width: UIScreen.main.bounds.width * 0.3)
+                } placeholder: {
+                    
+                    Color.gray
+                }
+            }
             VStack {
                 Text(profissionalSelecionado.nome)
                     .font(.title)
@@ -39,52 +64,35 @@ struct ProfissionalView: View {
                     Text("Feedback")
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     Spacer()
-                    Button ("Entrar em contato") {
-                        if let url = URL(string: "https://wa.me/34988289074?text=Testing%20test"),
-                        UIApplication.shared.canOpenURL(url) {
-                           UIApplication.shared.open(url, options: [:])
-                        }
+                    Button ("Contratar serviço") {
+                        sheet.toggle()
                     }
                 }
                 .padding([.leading])
                 .padding([.top, .bottom], 10)
                 ScrollView {
-//                    ForEach(p, id: \.self) { profissional in
-                    HStack {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: UIScreen.main.bounds.width * 0.15))
-                        VStack {
-                            HStack {
-                                Text("Marta")
-                                    .font(.headline)
+                    // ainda está dando errado
+                    ForEach(profissionalSelecionado.comentarios, id: \.self) { comentario in
+                        HStack {
+                            Image(systemName: "person.crop.circle.fill")
+                                .font(.system(size: UIScreen.main.bounds.width * 0.15))
+                            VStack {
+                                HStack {
+                                    Text(comentario.id)
+                                        .font(.headline)
                                     Spacer()
-                            }
-                            HStack {
-                                Text("O serviço não é muito bom.")
-                                Spacer()
+                                }
+                                HStack {
+                                    Text(comentario.comentario)
+                                    Spacer()
+                                }
                             }
                         }
+                        .padding()
+                        .border(.black)
                     }
-                    .padding()
-                    .border(.black)
-                    
-                    HStack {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: UIScreen.main.bounds.width * 0.15))
-                        VStack {
-                            HStack {
-                                Text("Rocha")
-                                    .font(.headline)
-                                    Spacer()
-                            }
-                            HStack {
-                                Text("O serviço me agradou.")
-                                Spacer()
-                            }
-                        }
-                    }
-                    .padding()
-                    .border(.black)
+                }.sheet(isPresented: $sheet) {
+                    ContratoView(profissionalSelecionado: $profissionalSelecionado, vm: vm)
                 }
             }
         }

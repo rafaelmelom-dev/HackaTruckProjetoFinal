@@ -38,6 +38,8 @@ var profissoes = [
 ]
 
 struct Profissional: Codable, Hashable{
+    var _id: String
+    var _rev: String
     var nome: String
     var foto: String
     var profissao: String
@@ -54,27 +56,29 @@ struct Comentario: Codable, Identifiable, Hashable{
 }
 
 struct Perfil: Codable, Hashable{
+ 
+    var _id: String
+    var _rev: String
     var nome: String
     var foto: String
+    var telefone: String
     var endereco: Endereco
     var favoritos: [String]
-    var descricao: String
-    var historico: Historico
+    var historico: [Historico]
+    var login: String
+    var senha: String
 }
 
 struct Endereco: Codable, Hashable{
     var estado: String
     var cidade: String
-    var bairro: String
-    var rua: String
-    var numero: Int
-    var cep: Int
 }
 
 struct Historico: Codable, Identifiable, Hashable{
-    var id: String
-    var datahora: String
-    var preco: Double
-    var avaliacao: Double
+    var id: String?
+    var datahora: String?
+    var preco: Double?
+    var avaliacao: Double?
+    var comentario: String?
 }
 
